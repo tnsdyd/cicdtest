@@ -12,7 +12,7 @@ pipeline {
 	sudo echo "1111" >> index.html
         sudo docker build -t mm0820/testweb:newnewblog .
         sudo docker push mm0820/testweb:newnewblog
-	sudo echo "2222" >> index.html
+	sudo sed 's/1111/2222/g' index.html
 	sudo docker build -t mm0820/testweb:newnewshop .
 	sudo docker push mm0820/testweb:newnewshop
         '''
