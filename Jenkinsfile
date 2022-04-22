@@ -22,7 +22,7 @@ pipeline {
       steps {
         sh '''
         sudo kubectl set image deploy pod-blog ctn-blog=mm0820/testweb:newnewblog
-	sudo kubectl set image deplot pod-shop ctn-shop=mm0820/testweb:newnewshop
+	sudo kubectl set image deploy pod-shop ctn-shop=mm0820/testweb:newnewshop
         '''
       }
     }
