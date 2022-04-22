@@ -9,15 +9,20 @@ pipeline {
     stage('docker build and push') {
       steps {
         sh '''
-        sudo docker build -t mm0820/testweb:newnewmain .
-        sudo docker push mm0820/testweb:newnewmain
+	sudo echo "1111" >> index.html
+        sudo docker build -t mm0820/testweb:newnewblog .
+        sudo docker push mm0820/testweb:newnewblog
+	sudo echo "2222" >> index.hmtl
+	sudo docker build -t mm0820/testweb:newnewshop .
+	sudo docker push mm0820/testweb:newnewshop
         '''
       }
     }
     stage('deploy k8s') {
       steps {
         sh '''
-        sudo kubectl set image deploy pod-main ctn-main=mm0820/testweb:newnewmain
+        sudo kubectl set image deploy pod-blog ctn-blog=mm0820/testweb:newnewblog
+	sudo kubectl set image deplot pod-shop ctn-shop=mm0820/testweb:newnewshop
         '''
       }
     }
