@@ -9,10 +9,10 @@ pipeline {
     stage('docker build and push') {
       steps {
         sh '''
-	sudo sed -e "s\$/text/" index.html
+	sudo echo "1234" >> index.html
         sudo docker build -t mm0820/testweb:newnewblog .
         sudo docker push mm0820/testweb:newnewblog
-	sudo sed 's\$/ttt/' index.html
+	sudo echo "가나다라" >> index.html
 	sudo docker build -t mm0820/testweb:newnewshop .
 	sudo docker push mm0820/testweb:newnewshop
         '''
